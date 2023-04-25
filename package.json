@@ -4,22 +4,20 @@
   "description": "Landing page of natours",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "node-sass sass/main.scss css/style.css -w",
-    "devserver": "live-server",
-    "start": "npm-run-all --parallel devserver watch:sass",
-    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
-    "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
-    "prefix:css": "postcss css/style.concat.css --use autoprefixer -b 'last 10 versions'  -o css/style.prefix.css",
-    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+    "build": "webpack --mode=production",
+    "start": "webpack serve --mode=development"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.4.12",
-    "concat": "^1.0.3",
-    "node-sass": "^7.0.3",
-    "npm-run-all": "^4.1.5",
-    "postcss-cli": "^10.0.0"
+    "css-loader": "^6.7.3",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.5",
+    "sass": "^1.62.0",
+    "sass-loader": "^13.2.2",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
   }
 }
